@@ -36,7 +36,6 @@ function handleWindowControls() {
     });
 
     document.getElementById('close-button').addEventListener("click", event => {
-        console.log('close');
         win.close();
     });
 }

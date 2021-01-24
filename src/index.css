@@ -1,4 +1,28 @@
+@font-face {
+    font-family: "Noto Sans KR";
+    src: url("./NotoSansKR-Regular.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-family: "Noto Sans KR";
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    height: 100%;
     margin: 0;
     overflow-y: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +32,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    height: calc(100% - 25px);
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
                  monospace;
@@ -15,10 +43,8 @@ code {
 
 #titlebar {
     display: block;
-    position: fixed;
     height: 25px;
     width: 100%;
-    padding: 4px;
     background-color: #254053;
     color: #444;
 }
@@ -27,6 +53,7 @@ code {
     width: 100%;
     height: 100%;
     -webkit-app-region: drag;
+    position: relative;
 }
 
 #window-controls {
@@ -34,12 +61,12 @@ code {
     grid-template-columns: repeat(3, 46px);
     position: absolute;
     top: 0;
-    right: 8px;
+    right: 0px;
     height: 100%;
     -webkit-app-region: no-drag;
 }
 
-#window-controls .button {
+#window-controls .control-button {
     grid-row: 1 / span 1;
     display: flex;
     justify-content: center;
@@ -49,11 +76,11 @@ code {
     user-select: none;
 }
 
-#window-controls .button:hover {
+#window-controls .control-button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-#window-controls .button:active {
+#window-controls .control-button:active {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -90,9 +117,67 @@ code {
     }
 }
 
-#main {
-    height: calc(100% - 25px);
-    margin-top: 25px;
-    padding: 20px;
+main {
     overflow-y: auto;
+    height: 100%;
+    width: 100%;
+}
+
+#wrap {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.login-container form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.login-container .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.login-container .form-control:focus {
+    z-index: 2;
+}
+
+.login-container input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.login-container input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }

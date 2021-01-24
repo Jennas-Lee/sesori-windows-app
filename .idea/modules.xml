@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/sesori-windows-app.iml" filepath="$PROJECT_DIR$/.idea/sesori-windows-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sesori-windows-backend/.idea/sesori-windows-backend.iml" filepath="$PROJECT_DIR$/../sesori-windows-backend/.idea/sesori-windows-backend.iml" />
     </modules>
   </component>
 </project>
