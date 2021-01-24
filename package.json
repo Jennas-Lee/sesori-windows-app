@@ -1,12 +1,23 @@
 {
   "name": "sesori-windows-app",
   "version": "0.0.1",
-  "description": "선생님들이 사용하실 메신저 대체 윈도우 앱",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "cross-env": "^7.0.3",
+    "electron": "^11.2.1",
+    "electron-reload": "^1.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env BROWSER=none NODE_ENV=development react-scripts start",
+    "electron": "cross-env NODE_ENV=development ELECTRON_START_URL=http://localhost:3000 electron ."
   },
   "repository": {
     "type": "git",
@@ -17,13 +28,22 @@
   "bugs": {
     "url": "https://github.com/Jennas-Lee/sesori-windows-app/issues"
   },
-  "homepage": "https://github.com/Jennas-Lee/sesori-windows-app#readme",
-  "dependencies": {
-    "electron-reload": "^1.5.0"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "devDependencies": {
-    "custom-electron-titlebar": "^3.2.6",
-    "electron": "^11.2.1",
-    "electron-builder": "^22.9.1"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const url = require('url');
 const path = require('path');
 
-let mainWindow;
+let mainWindow = null;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
@@ -10,39 +10,29 @@ function createWindow() {
         height: 600,
         frame: false,
         webPreferences: {
-            contextIsolation: true,
-            // nodeIntegration: true,
-            // preload: path.join(__dirname, 'preload.js')
+            // contextIsolation: true,
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     });
 
-    mainWindow.on('minimize', (event) => {
-        event.preventDefault();
-        mainWindow.hide();
+    const startURL = process.env.ELECTRON_START_URL || url.format({
+        pathname: path.join(__dirname, './build/index.html'),
+        protocol: 'file:',
+        slashes: true
     });
 
-    mainWindow.on('restore', (event) => {
-        mainWindow.show();
-    });
+    if(process.env.NODE_ENV == 'development') {
+        mainWindow.webContents.openDevTools();
+    }
 
-    mainWindow.webContents.openDevTools();
-    mainWindow.loadFile('./src_temp/index.html');
-
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
+    mainWindow.loadURL(startURL);
 }
 
-app.on('ready', createWindow);
+app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
     if(process.platform !== 'darwin') {
         app.quit();
     }
-});
-
-app.on('activate', () => {
-    if(mainWindow === null) {
-        createWindow();
-    }
-});
+})
