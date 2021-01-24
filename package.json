@@ -1,0 +1,29 @@
+{
+  "name": "sesori-windows-app",
+  "version": "0.0.1",
+  "description": "선생님들이 사용하실 메신저 대체 윈도우 앱",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jennas-Lee/sesori-windows-app.git"
+  },
+  "author": "Jennas Lee",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Jennas-Lee/sesori-windows-app/issues"
+  },
+  "homepage": "https://github.com/Jennas-Lee/sesori-windows-app#readme",
+  "dependencies": {
+    "electron-reload": "^1.5.0"
+  },
+  "devDependencies": {
+    "custom-electron-titlebar": "^3.2.6",
+    "electron": "^11.2.1",
+    "electron-builder": "^22.9.1"
+  }
+}
