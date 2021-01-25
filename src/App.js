@@ -1,5 +1,7 @@
 import './App.css';
-import { Container, Form, Row, Col, Button, Input, Label } from 'reactstrap';
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import { Container, Form, Row, Col, Button, Input, Label, Nav, NavItem, NavLink } from 'reactstrap';
 
 function Login(props) {
     return (
@@ -23,11 +25,43 @@ function Login(props) {
     );
 }
 
+function Main(props) {
+    return (
+        <Nav className="flex-column main-nav">
+            <NavItem>
+                <NavLink className="text-center">
+                    <img src="./icons/chat-left.svg" alt=""/>
+                    <p>메신저</p>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink className="text-center">
+                    <img src="./icons/award.svg" alt=""/>
+                    <p>상점</p>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink className="text-center">
+                    <img src="./icons/calendar-date.svg" alt=""/>
+                    <p>일정</p>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink className="text-center">
+                    <img src="./icons/clock.svg" alt=""/>
+                    <p>시간표</p>
+                </NavLink>
+            </NavItem>
+        </Nav>
+    );
+}
+
 function App() {
     return (
         <main>
+            <Main></Main>
             <Container>
-                <Login/>
+                {/*<Login/>*/}
             </Container>
         </main>
     );
