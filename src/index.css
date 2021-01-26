@@ -134,7 +134,8 @@ main {
 .login-container {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     user-select: none;
 }
 
@@ -196,15 +197,11 @@ main {
     height: 55px;
     width: 55px;
     position: relative;
-    padding: 3px;
-}
-
-.main-nav li:hover {
-    background-color: rgba(174, 198, 207, 0.6);
 }
 
 .main-nav a {
     padding: 0;
+    height: 100%;
     width: 100%;
     position: absolute;
     top: 50%;
@@ -213,9 +210,18 @@ main {
     user-select: none;
 }
 
+.main-nav a:hover:not(.active) {
+    background-color: rgba(174, 198, 207, 0.6);
+}
+
+.main-nav .active {
+    background-color: #dadddd;
+}
+
 .main-nav svg {
     height: 25px;
     width: 25px;
+    margin-top: 5px;
 }
 
 .main-nav p {
@@ -229,8 +235,13 @@ main {
 
 .contents {
     position: absolute;
+    padding: 20px;
     height: 100%;
     width: calc(100% - 55px);
     margin-left: 55px;
     background-color: #dadddd;
+}
+
+.settings {
+    font-size: 20px;
 }
